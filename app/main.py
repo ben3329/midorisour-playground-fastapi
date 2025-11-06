@@ -45,6 +45,9 @@ app = FastAPI(
         "name": "MIT License",
         "identifier": "MIT",
     },
+    servers=[
+        {"url": "https://api.midorisour.kro.kr"},
+    ],
 )
 
 
