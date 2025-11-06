@@ -42,7 +42,8 @@ app = FastAPI(
         "email": "ben3329@naver.com",
     },
     license_info={
-        "name": "Proprietary",
+        "name": "MIT License",
+        "identifier": "MIT",
     },
 )
 
