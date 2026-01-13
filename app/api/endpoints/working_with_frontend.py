@@ -1,4 +1,4 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, File, Form, UploadFile
 
 from app.schemas.working_with_frontend import (
     AnimalHouseCommonResponse,
@@ -36,3 +36,26 @@ async def get_unusual_response() -> AnimalHouseUnusualResponse:
         mammalia=Dog(name="Rex", bark_volume=7),
     )
     return res
+
+
+@router.post("/form/unmodified")
+async def upload_file_via_form(
+    file: UploadFile = File(),
+    description: str = Form(...),
+):
+    return
+
+
+@router.post("/form/modified", tags=["modify-swagger"])
+async def upload_file_via_form(
+    file: UploadFile = File(),
+    description: str = Form(...),
+):
+    return
+
+
+@router.post("/form/fileonly")
+async def upload_file_via_form(
+    file: UploadFile = File(),
+):
+    return
