@@ -7,6 +7,7 @@ from app.schemas.working_with_frontend import (
     Ants,
     Bee,
     Dog,
+    FormResponse,
 )
 
 router = APIRouter()
@@ -42,20 +43,19 @@ async def get_unusual_response() -> AnimalHouseUnusualResponse:
 async def upload_file_via_form(
     file: UploadFile = File(),
     description: str = Form(...),
-):
-    return
+) -> FormResponse:
+    return FormResponse(
+        filename=file.filename,
+        description=description,
+    )
 
 
 @router.post("/form/modified", tags=["modify-swagger"])
 async def upload_file_via_form(
     file: UploadFile = File(),
     description: str = Form(...),
-):
-    return
-
-
-@router.post("/form/fileonly")
-async def upload_file_via_form(
-    file: UploadFile = File(),
-):
-    return
+) -> FormResponse:
+    return FormResponse(
+        filename=file.filename,
+        description=description,
+    )

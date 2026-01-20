@@ -36,3 +36,8 @@ class AnimalHouseUnusualResponse(BaseModel):
 class AnimalHouseCommonResponse(BaseModel):
     creature: Cat | Dog | Ants
     mammalia: Cat | Dog
+
+
+class FormResponse(BaseModel):
+    filename: str
+    description: str
